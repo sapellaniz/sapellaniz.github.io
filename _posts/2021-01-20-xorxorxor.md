@@ -1,11 +1,15 @@
 ---
+layout: single
 title: HTB - xorxorxor
+excerpt: "Who needs AES when you have XOR?"
 date: 2021-01-20
+classes: wide
 author: sapellaniz
+categories:
+  - crypto
 tags:
   - xor
   - HTB
-categories: crypto
 ---
 `Crypto`
 >  Who needs AES when you have XOR? 
