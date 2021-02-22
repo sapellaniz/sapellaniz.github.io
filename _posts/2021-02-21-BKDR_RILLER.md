@@ -31,7 +31,7 @@ La muestra es una dll llamada utntweep.dll, por desgracia en el repositorio no s
 
 Comenzamos analizando la muestra con PEStudio, vemos que tiene una entropía de 3.133 por lo que descartamos que esté empacado, también vemos que tiene imports sospechosos pero no encontramos ninguna cadena sospechosa.
 
-Desensamblamos la muestra con IDA, renombramos la primera subrutina que es llamada con el nombre "Function_Start" y comenzamos a analizarla. Tiene una llamada ala función GetModuleFileNameA, si cargamos la dll con Olly y ponemos un breakpoint después de esta llamada, vemos que la dll ha detectado que ha sido "inyectada" en LOADDLL.EXE de Olly.
+Desensamblamos la muestra con IDA, renombramos la primera subrutina que es llamada con el nombre "Function_Start" y comenzamos a analizarla. Tiene una llamada a la función GetModuleFileNameA, si cargamos la dll con Olly y ponemos un breakpoint después de esta llamada, vemos que la dll ha detectado que ha sido "inyectada" en LOADDLL.EXE de Olly.
 
 ![](/assets/images/bkdr_riller/01.png)
 
