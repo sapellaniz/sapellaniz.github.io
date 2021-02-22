@@ -33,13 +33,13 @@ Comenzamos analizando la muestra con PEStudio, vemos que tiene una entropía de 
 
 Desensamblamos la muestra con IDA, renombramos la primera subrutina que es llamada con el nombre "Function_Start" y comenzamos a analizarla. Tiene una llamada ala función GetModuleFileNameA, si cargamos la dll con Olly y ponemos un breakpoint después de esta llamada, vemos que la dll ha detectado que ha sido "inyectada" en LOADDLL.EXE de Olly.
 
-![](/assets/images/tibet_apt/01.png)
+![](/assets/images/bkdr_riller/01.png)
 
 Tambien vemos que inmediatamente después comprueba si ha sido inyectado en un proceso creado por alguno de los siguienes ejecutables: explorer.exe, outlook.exe, msimn.exe, netscp.exe, yahoomessenger.exe, msnmsgr.exe, opera.exe, firefox.exe, safari.exe o svchost.exe. Si es así, fija a True una variable booleana. Al terminar estas comprobaciones, comprueba el valor de la variable, si es False, termina su ejecución. Esto nos hace pensar que muy probablemente el vector de ataque fuera una campaña de phising.
 
 Para poder depurar la dll de forma cómoda, la parcheamos para que no realice esta comprobación:
 
-![](/assets/images/tibet_apt/02.png)
+![](/assets/images/bkdr_riller/02.png)
 
 A la izquierda vemos la dll original en IDA, a la derecha en Olly vemos la dll con un salto parcheado antes de establecer la variable booleana a True.
 
@@ -47,11 +47,11 @@ A la izquierda vemos la dll original en IDA, a la derecha en Olly vemos la dll c
 
 Una vez realizada esa primera comprobación, el malware crea dos threads a los que hemos llamado "Thread_1" y "Thread_2".
 
-![](/assets/images/tibet_apt/03.png)
+![](/assets/images/bkdr_riller/03.png)
 
 Por simplicidad, explicaremos primero el funcionamiento de "Thread_2" ya que está compuesto por una única subrutina:
 
-![](/assets/images/tibet_apt/04.png)
+![](/assets/images/bkdr_riller/04.png)
 
 Simplemente incrementa un contador "Count_1" cada 6 segundos, si el contador llega a 9 (después de 54 segundos), cierra el socket con el C2. Cada vez que el malware recibe un comando del C2, reestablece a 0 este contador, como veremos más adelante.
 
@@ -59,7 +59,7 @@ Simplemente incrementa un contador "Count_1" cada 6 segundos, si el contador lle
 
 La subrutina "Thread_1" se encarga básicamente de comunicarse con el C2 mediante la subrutina que hemos llamado "Function_C2_Comunication". También trata de reconectarse cada 13 segundos una vez perdida la conexión.
 
-![](/assets/images/tibet_apt/05.png)
+![](/assets/images/bkdr_riller/05.png)
 
 # C2 Comunication
 
@@ -75,7 +75,7 @@ Por último guarda las dos siguientes cadenas en una posición de memoria cada u
 
 Inmediatamente después de llamar a "Function_Get_PC_Data", "Function_C2_Comunication" llama dos veces a una subrutina que hemos llamado "Function_Decrypt_String" pasando como argumento las cadenas que acabamos de ver. Hemos llamado así a esta subrutina porque aplicando ROT39 a cada cadena, las transforma en "losang.dynamicdns.co.uk" y "6655" respectivamente:
 
-![](/assets/images/tibet_apt/06.png)
+![](/assets/images/bkdr_riller/06.png)
 
 Ya tenemos la dirección y el puerto por el que escucha el C2.
 
@@ -93,7 +93,7 @@ En la documentación de Microsoft sobre esta función encontramos lo siguiente: 
 
 Con un breakpoint en la llamada a "FindFirstFileA" examinamos el filename que se le está pasando como primer argumento y vemos lo siguiente:
 
-![](/assets/images/tibet_apt/07.png)
+![](/assets/images/bkdr_riller/07.png)
 
 Nos damos cuenta que se le ha añadido 0x0A (salto de línea) a la ruta especificada en el comando, por lo que no está encontrando ningún archivo con ese nombre nunca. Para solucionar este problema, desarrollamos una interfaz en python con la libreria pwntools:
 
@@ -134,7 +134,7 @@ if __name__ == '__main__':
 
 Ya podemos comunicarnos con el malware de forma cómoda:
 
-![](/assets/images/tibet_apt/08.png)
+![](/assets/images/bkdr_riller/08.png)
 
 Con esto podemos reversear los comandos facilmente. El funcionamiento de cada uno está detallado a continuación junto a los códigos de error:
 
