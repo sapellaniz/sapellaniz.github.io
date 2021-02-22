@@ -9,10 +9,12 @@
   @include breakpoint($large) {
     float: right;
     width: calc(100% - #{$right-sidebar-width-narrow});
+    padding-right: $right-sidebar-width-narrow;
   }
 
   @include breakpoint($x-large) {
     width: calc(100% - #{$right-sidebar-width});
+    padding-right: $right-sidebar-width;
   }
 }
 
@@ -98,6 +100,7 @@
   bottom: 0;
   right: 0;
   margin: 0 auto;
+  padding: 2px 5px;
   color: #fff;
   font-family: $caption-font-family;
   font-size: $type-size-8;
@@ -107,6 +110,9 @@
   opacity: 0.5;
   border-radius: $border-radius 0 0 0;
 
+  @include breakpoint($large) {
+    padding: 5px 10px;
+  }
 
   a {
     color: #fff;
@@ -273,6 +279,10 @@
     }
   }
 
+  .archive__item-body {
+    padding-left: gutter(1 of 12);
+    padding-right: gutter(1 of 12);
+  }
 
   a.btn::before {
     content: '';
@@ -317,6 +327,9 @@
 
       .archive__item-body {
         float: right;
+        padding-left: gutter(0.5 of 12);
+        padding-right: gutter(1 of 12);
+        width: span(7 of 12);
       }
     }
   }
@@ -357,6 +370,9 @@
 
       .archive__item-body {
         float: left;
+        width: span(7 of 12);
+        padding-left: gutter(0.5 of 12);
+        padding-right: gutter(1 of 12);
       }
     }
   }
@@ -428,6 +444,9 @@
 
   .wide {
   .archive {
+    @include breakpoint($large) {
+      padding-right: 0;
+    }
 
     @include breakpoint($x-large) {
       padding-right: 0;
