@@ -1,4 +1,5 @@
 ---
+layout: single
 title: BKDR RILER
 date: 2021-02-21
 author: sapellaniz, Esu23, S
