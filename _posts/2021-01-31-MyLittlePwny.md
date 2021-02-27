@@ -6,7 +6,7 @@ date: 2021-01-31
 classes: wide
 author: sapellaniz
 categories:
-  - PWN
+  - CTF
 tags:
   - PWN
   - sh-Injection

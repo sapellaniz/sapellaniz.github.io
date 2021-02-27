@@ -6,8 +6,9 @@ date: 2021-01-20
 classes: wide
 author: sapellaniz
 categories:
-  - crypto
+  - HTB
 tags:
+  - crypto
   - xor
   - HTB
 ---

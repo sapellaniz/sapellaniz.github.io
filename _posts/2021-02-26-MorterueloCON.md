@@ -6,14 +6,13 @@ date: 2021-02-26
 classes: wide
 author: sapellaniz
 categories:
+  - CTF
+tags:
   - RE
   - Forensics
   - Crypto
-tags:
   - radare2
   - wireshark
-  - RE
-  - Forensics
 ---
 # Super-secret container (Reversing)
 
