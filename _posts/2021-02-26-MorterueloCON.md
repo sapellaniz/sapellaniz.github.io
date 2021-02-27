@@ -142,14 +142,6 @@ morteruelo2021{cr1pt0_b4s1c}%
 
 ### Resolviendo
 
----
-# Basic (Crypto)
-
-> "Simple"
----
-
-### Resolviendo
-
 Para este reto nos entregan un .zip con un .txt dentro con el siguiente contenido:
 
 ```
