@@ -127,6 +127,8 @@ A continuación adjunto la parte interesante del binario, que es la que transfor
 
 Y a continuación muestro el funcionamiento de este algoritmo en python3:
 
+**pseudo.py**
+
 ```python3
 str1 = "c-n|TD^zJFp|I'q\"VCj7.mNj4"
 str2 = "f4|<"
@@ -147,6 +149,7 @@ for i in range(0, len(input)):
 
 Para escribir el solver, no puedo invertir el algoritmo por la operación "% 0x5f", paso cada caracter por el algoritmo y si coincide con el caracter correspondiente de la cadena hardcodeada, lo antepongo a la flag.
 
+**solver.py**
 
 ```python3
 #!/usr/bin/python3
