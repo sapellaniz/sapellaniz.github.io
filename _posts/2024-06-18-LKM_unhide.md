@@ -73,6 +73,6 @@ I have built **LKM unhide**, a LKM Rootkits Detection Tool which applies the det
 
 The main protections against this kind of malware are:
 
-- **Secure boot & LKM singing**: Secure boot is a feature that ensures that only signed and trusted components, including kernel modules, can be loaded during the system boot process. It prevents the loading of unauthorized modules.
+- **Secure boot & LKM signing**: Secure boot is a feature that ensures that only signed and trusted components, including kernel modules, can be loaded during the system boot process. It prevents the loading of unauthorized modules.
 - **Linux Security Modules**: Use access control mechanisms such as AppArmor and SElinux to limit which processes and users can load and interact with kernel modules.
 - **Block kernel module loading**: While it is possible to block kernel module loading, it is not recommended because the operating system would have to include all possible anticipated functionality compiled directly into the base kernel.
