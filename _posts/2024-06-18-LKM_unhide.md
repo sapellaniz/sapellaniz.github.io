@@ -7,7 +7,6 @@ classes: wide
 header:
     teaser: /assets/images/lkm_unhide/demo.png
     teaser_home_page: true
-author: sapellaniz
 categories:
   - REM
 tags:
