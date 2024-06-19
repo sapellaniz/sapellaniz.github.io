@@ -53,13 +53,13 @@ list_del() function is defined at "include/linux/list.h":
 
 That poisoned pointers, LIST_POISON1 and LIST_POISON2 (0xdead000000000100 and 0xdead000000000122 on my computer), could be used to scan the kernel memory and find hidden modules. Once these poisoned pointers are found, it is possible to locate the pointer to the module structure and finally add the module to the kernel module list.
 
-list_head is the second member of the module struct. The members of the list_head struct are the poisoned pointers. The module struct is defined at "include/linux/module.h":
+The module struct is defined at "include/linux/module.h":
 
 | ![](/assets/images/lkm_unhide/struct_module.png) |
 |:--:|
 | *"include/linux/module.h" source code* |
 
-Then is as simple as find a memory address wich contains LIST_POISON1 and check if just after that is LIST_POISON2. Then the pointer to the module should be just before LIST_POISON1.
+list_head is the second member of the module struct. In a hidden module, the members of the list_head struct are the poisoned pointers (entry->next & entry->prev). Then is as simple as find a memory address wich contains LIST_POISON1 and check if just after that is LIST_POISON2. In that case the pointer to the hidden module would be just before LIST_POISON1.
 
 It is not necessary to scan all kernel memory. It is usually sufficient to scan the memory regions between unhidden modules. Furthermore, when loading an LKM, memory is reserved using kmallok(). That means that when loading an LKM on an infected machine, it will most likely be assigned a higher memory address than any other module (including hidden LKM rootkits). The latter is not always the case, but in those cases hidden modules can be found by scanning some addresses beyond the LKM loaded in the highest address.  
 
