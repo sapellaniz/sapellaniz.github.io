@@ -2,7 +2,7 @@
 layout: single
 title: LKM unhide
 excerpt: "New LKM Rootkit detection technique. How to find hidden LKM Rootkits scanning memory regions between unhidden modules."
-date: 2021-06-12
+date: 2024-06-99
 classes: wide
 author: sapellaniz
 categories:
