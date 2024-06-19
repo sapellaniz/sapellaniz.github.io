@@ -37,7 +37,7 @@ list_del(&THIS_MODULE->list);
 |:--:|
 | *reptile* |
 
-To remove that hidden LKM Rootkits, they must first be unhidden using the list_add() function:
+To remove the above mentioned or similar hidden LKM Rootkits, they must first be unhidden using the list_add() function:
 ```c
 list_add(&THIS_MODULE->list, THIS_MODULE->list.prev);
 ```  
