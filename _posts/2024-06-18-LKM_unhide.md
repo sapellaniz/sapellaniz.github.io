@@ -17,16 +17,6 @@ tags:
 sidebar:
   - title: "Sergio Apellaniz"
     image: "/assets/images/bio-photo.jpg"
-    links:
-    - label: "Hack The Box"
-      icon: "fas fa-fw fa-cube"
-      url: "https://www.hackthebox.eu/profile/191443"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/sapellaniz"
-    - label: "Linkedin"
-      icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/sapellaniz/"
 
 ![](/assets/images/lkm_unhide/demo.png)
 
