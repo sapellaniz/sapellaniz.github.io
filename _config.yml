@@ -19,7 +19,7 @@ description: cat myStuff » /dev/null
 twitter_username: x
 github_username: sapellaniz
 minimal_mistakes_skin: dark
-i#search: true
+search: true
 
 # Sass/SCSS
 sass:
@@ -27,7 +27,6 @@ sass:
   style: compressed # https://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
 
 # Build settings
-markdown: kramdown
 remote_theme: mmistakes/minimal-mistakes
 # Outputting
 permalink: /:categories/:title/
@@ -36,19 +35,23 @@ paginate_path: /page:num/
 timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 include:
+  - .htaccess
   - _pages
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+exclude:
+   - Gemfile
+   - Gemfile.lock
+   - node_modules
+   - vendor/bundle/
+   - vendor/cache/
+   - vendor/gems/
+   - vendor/ruby/
+   - /docs
+   - /test
+
 
 # Plugins (previously gems:)
 plugins:
@@ -84,7 +87,7 @@ footer:
       url: "https://github.com/sapellaniz"
     - label: "Linkedin"
       icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/sergio-apellaniz-b1b2b0206/"
+      url: "https://www.linkedin.com/in/sapellaniz/"
 
 defaults:
   # _posts
@@ -94,17 +97,10 @@ defaults:
     values:
       layout: single
       author_profile: true
-#      read_time: true
+      read_time: false
       comments: true
-      share: true
+      share: false
       related: true
-  # _pages
-  - scope:
-      path: "_pages"
-      type: pages
-    values:
-      layout: single
-      author_profile: true
 
 category_archive:
   type: liquid
@@ -112,3 +108,42 @@ category_archive:
 tag_archive:
   type: liquid
   path: /tags/
+
+encoding: "utf-8"
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+markdown: kramdown
+highlighter: rouge
+lsi: false
+excerpt_separator: "\n\n"
+
+permalink: /:categories/:title/
+paginate: 5 # amount of posts to show
+paginate_path: /page:num/
+timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+
+# Plugins (previously gems:)
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jekyll-include-cache
+
+whitelist:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jekyll-include-cache
+
+category_archive:
+  type: liquid
+  path: /categories/
+tag_archive:
+  type: liquid
+  path: /tags/
+
+compress_html:
+  clippings: all
+  ignore:
+    envs: development
