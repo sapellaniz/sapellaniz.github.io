@@ -1,7 +1,7 @@
 ---
 layout: single
 title: LKM unhide
-excerpt: "New LKM Rootkit detection technique. How to find hidden LKM Rootkits scanning memory regions between unhidden modules."
+excerpt: "How to find hidden LKM Rootkits scanning kernel memory."
 date: 2024-06-19
 classes: wide
 author: sapellaniz
