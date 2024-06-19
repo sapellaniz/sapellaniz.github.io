@@ -21,7 +21,7 @@ tags:
 3. [LKM unhide](#lkm_unhide)
 4. [Prevention](#prevention)  
 
-  
+##
 # Evasion
 
 Many LKM Rootkits (diamorphine, reptile, etc) try to stay hidden removing themselves from the kernel module list using the list_del() function:
@@ -42,7 +42,7 @@ To remove the above mentioned or similar hidden LKM Rootkits, they must first be
 list_add(&THIS_MODULE->list, THIS_MODULE->list.prev);
 ```  
 
-  
+##
 # Detection
 
 list_del() function is defined at "include/linux/list.h":
@@ -51,7 +51,7 @@ list_del() function is defined at "include/linux/list.h":
 |:--:|
 | *"include/linux/list.h" source code* |
 
-That poisoned pointers, LIST_POISON1 and LIST_POISON2 (0xdead000000000100 and 0xdead000000000122 on my computer), could be used to scan the kernel memory and find hidden modules. Once these poisoned pointers are found, it is possible to locate the pointer to the module structure and finally add the module to the kernel module list.
+The poisoned pointers, LIST_POISON1 and LIST_POISON2 (0xdead000000000100 and 0xdead000000000122 on my computer), could be used to scan the kernel memory and find hidden modules. Once these poisoned pointers are found, it is possible to locate the pointer to the module structure and finally add the module to the kernel module list.
 
 The module struct is defined at "include/linux/module.h":
 
