@@ -4,7 +4,6 @@ title: MorterueloCON
 excerpt: "Writeups de un par de pruebas de la MorterueloCON2021."
 date: 2021-02-26
 classes: wide
-author: sapellaniz
 categories:
   - CTF
 tags:

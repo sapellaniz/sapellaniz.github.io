@@ -4,7 +4,6 @@ title: justCTF2020 - MyLittlePwny
 excerpt: "Ponies like only one type of numbers!"
 date: 2021-01-31
 classes: wide
-author: sapellaniz
 categories:
   - CTF
 tags:

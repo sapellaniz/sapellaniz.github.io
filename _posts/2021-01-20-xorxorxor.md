@@ -4,7 +4,6 @@ title: HTB - xorxorxor
 excerpt: "Who needs AES when you have XOR?"
 date: 2021-01-20
 classes: wide
-author: sapellaniz
 categories:
   - HTB
 tags:

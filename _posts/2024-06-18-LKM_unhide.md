@@ -13,9 +13,6 @@ tags:
   - Malware
   - RE
   - REM
-sidebar:
-  - title: "Sergio Apellaniz"
-    image: "/assets/images/bio-photo.jpg"
 ---
 
 ![](/assets/images/lkm_unhide/demo.png)

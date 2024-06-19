@@ -4,7 +4,6 @@ title: justCTF2020 - ThatsNotCrypto
 excerpt: "This is very simple RE task, but you may need some other skills as well. :)"
 date: 2021-01-31
 classes: wide
-author: sapellaniz
 categories:
   - CTF
 tags:

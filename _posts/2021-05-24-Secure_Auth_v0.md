@@ -4,7 +4,6 @@ title:  Secure Auth v0
 excerpt: "One of NorzhNuclea's developers joined the team last quarter, specialized in authentication systems he found one he developed a few years ago with a innovative obfuscation method. Find the correct password to validate the checks."
 date: 2021-05-24
 classes: wide
-author: sapellaniz
 categories:
   - CTF
 tags:

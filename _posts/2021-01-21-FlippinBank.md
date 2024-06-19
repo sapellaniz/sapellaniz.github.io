@@ -4,7 +4,6 @@ title: HTB - FlippinBank
 excerpt: "The Bank of the World is under attack. Hackers found a way in and locked the admins out. However, the netcat authentication by the intruders is not perfectly secure. Could you help the admins log in?"
 date: 2021-01-21
 classes: wide
-author: TonyTowers, Esu23
 categories:
     - HTB
 tags:

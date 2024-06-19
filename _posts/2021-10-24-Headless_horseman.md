@@ -4,7 +4,6 @@ title: BKY - The Legend of the Headless Horseman
 excerpt: "BKY - The Legend of the Headless Horseman"
 date: 2021-06-12
 classes: wide
-author: sapellaniz
 categories:
   - CTF
 tags:

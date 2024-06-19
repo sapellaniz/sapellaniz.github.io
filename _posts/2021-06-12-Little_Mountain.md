@@ -4,7 +4,6 @@ title: CCC - Little Mountain
 excerpt: "Climb this mountain and score some points :)"
 date: 2021-06-12
 classes: wide
-author: sapellaniz
 categories:
   - CTF
 tags:
