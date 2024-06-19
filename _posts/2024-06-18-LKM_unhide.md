@@ -16,6 +16,12 @@ tags:
   - REM
 ---
 
+![](/assets/images/lkm_unhide/demo.png)
+
+How to find hidden LKM Rootkits scanning kernel memory.
+
+---
+
 # Table of Contents
 1. [Evasion](#evasion)
 2. [Detection](#detection)
