@@ -65,7 +65,12 @@ The module struct is defined at "include/linux/module.h":
 |:--:|
 | *"include/linux/module.h" source code* |
 
-list_head is the second member of the module struct. In a hidden module, the members of the list_head struct are the poisoned pointers (entry->next & entry->prev). Then is as simple as find a memory address wich contains LIST_POISON1 and check if just after that is LIST_POISON2. In that case the pointer to the hidden module would be just before LIST_POISON1.
+list_head is the second member of the module struct. In a hidden module, the members of the list_head struct are the poisoned pointers (entry->next & entry->prev). Therefore, is as simple as finding a memory address that contains LIST_POISON1 and checking if the following memory address contains LIST_POISON2. In that case, the pointer to the hidden module would be in the address just before LIST_POISON1:
+```
+[0x0000] <state>      <----- module struct base address
+[0x0008] LIST_POISON1
+[0x0010] LIST_POISON2
+```
 
 It is not necessary to scan all kernel memory. It is usually sufficient to scan the memory regions between unhidden modules. Furthermore, when loading an LKM, memory is reserved using kmallok(). That means that when loading an LKM on an infected machine, it will most likely be assigned a higher memory address than any other module (including hidden LKM rootkits). The latter is not always the case, but in those cases hidden modules can be found by scanning some addresses beyond the LKM loaded in the highest address.  
 
