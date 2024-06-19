@@ -4,6 +4,9 @@ title: LKM unhide
 excerpt: "How to find hidden LKM Rootkits scanning kernel memory."
 date: 2024-06-19
 classes: wide
+header:
+    teaser: /assets/images/lkm_unhide/demo.png
+    teaser_home_page: true
 author: sapellaniz
 categories:
   - REM
@@ -12,8 +15,6 @@ tags:
   - RE
   - REM
 ---
-
-![](/assets/images/lkm_unhide/demo.png)
 
 # Table of Contents
 1. [Evasion](#evasion)
@@ -66,7 +67,11 @@ It is not necessary to scan all kernel memory. It is usually sufficient to scan 
   
 # lkm_unhide
 
-I have built **LKM unhide**, a LKM Rootkits Detection Tool which applies the detection technique explained above to add to the kernel module list any hidden module (that used list_del() to hide itself). You can find the code in [this repo](https://github.com/sapellaniz/lkm_unhide).  
+I have built **LKM unhide**, a LKM Rootkits Detection Tool which applies the detection technique explained above to add to the kernel module list any hidden module (that used list_del() to hide itself). You can find the code in [this repo](https://github.com/sapellaniz/lkm_unhide). Here is a quick demo:
+ 
+| ![](/assets/images/lkm_unhide/demo.png) |
+|:--:|
+| *lkm_unhide demo* |
 
   
 # Prevention
