@@ -25,7 +25,8 @@ How to find hidden LKM Rootkits scanning kernel memory.
 1. [Evasion](#evasion)
 2. [Detection](#detection)
 3. [LKM unhide](#lkm_unhide)
-4. [Prevention](#prevention)  
+4. [Prevention](#prevention)
+5. [Bypass](#bypass)
 
 
 # Evasion
@@ -91,3 +92,15 @@ The main protections against this kind of malware are:
 - **Secure boot & LKM signing**: Secure boot is a feature that ensures that only signed and trusted components, including kernel modules, can be loaded during the system boot process. It prevents the loading of unauthorized modules.
 - **Linux Security Modules**: Use access control mechanisms such as AppArmor and SElinux to limit which processes and users can load and interact with kernel modules.
 - **Block kernel module loading**: While it is possible to block kernel module loading, it is not recommended because the operating system would have to include all possible anticipated functionality compiled directly into the base kernel.
+
+  
+# Bypass
+
+To bypass this detection method a LKM Rootkit just needs to overwrite list_head members (list.next & list.prev) after calling list_del():
+```c
+list_del(&THIS_MODULE->list);
+THIS_MODULE->list.next = 0xdeadbeefdeadbeef;
+THIS_MODULE->list.prev = 0xdeadbeefdeadbeef;
+```
+
+Then other patterns should be searched in memory in order to detect hidden LKMs.
