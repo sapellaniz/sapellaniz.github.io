@@ -12,11 +12,6 @@ Temporarily neutralize the auditd daemon by bypassing its immutable mode (-e 2) 
 
 ---
 
-# Table of Contents
-1. [Auditd architecture overview](#auditd_arch)
-2. [Attack workflow](#attack_workflow)
-3. [Detections_and_Protections](#detections_protections)
-
 # Auditd architecture overview
 The following image illustrates the architecture and relationship of the components in auditd:
 
@@ -30,8 +25,8 @@ The kernel does the heavy lifting to generates the events. In the case of a trus
 
 This attack targets auditd's Logging Thread and Dispatch Thread:
 
-- **Logging thread**: Neutralized by setting daemon_conf.write_logs to 0. This setting is normally used to prevent the Logging Thread from writing logs to the disk (usually set to 0 if you want to forward the logs to a plugin and have no interest in writing them to the disk). [https://github.com/linux-audit/audit-userspace/blob/280cb8c07c431439ff85771988b9656780b8ef2b/src/auditd-event.c#L654](handle_event check)
-- **Dispatch thread**: Neutralized by setting conf_llist.cnt to 0. This setting keeps a count of active plugins. When its value is 0, the Dispatch Thread will discard the event because there is no active plugin to share the log with. [https://github.com/linux-audit/audit-userspace/blob/280cb8c07c431439ff85771988b9656780b8ef2b/src/auditd-dispatch.c#L65](dispatch_event check) -> [https://github.com/linux-audit/audit-userspace/blob/280cb8c07c431439ff85771988b9656780b8ef2b/audisp/audispd.c#L813](libdisp_active check) -> [https://github.com/linux-audit/audit-userspace/blob/280cb8c07c431439ff85771988b9656780b8ef2b/audisp/audispd-llist.h#L69](plist_count check)
+- **Logging thread**: Neutralized by setting daemon_conf.write_logs to 0. This setting is normally used to prevent the Logging Thread from writing logs to the disk (usually set to 0 if you want to forward the logs to a plugin and have no interest in writing them to the disk). [handle_event() check](https://github.com/linux-audit/audit-userspace/blob/280cb8c07c431439ff85771988b9656780b8ef2b/src/auditd-event.c#L654)
+- **Dispatch thread**: Neutralized by setting conf_llist.cnt to 0. This setting keeps a count of active plugins. When its value is 0, the Dispatch Thread will discard the event because there is no active plugin to share the log with. [dispatch_event() check](https://github.com/linux-audit/audit-userspace/blob/280cb8c07c431439ff85771988b9656780b8ef2b/src/auditd-dispatch.c#L65) -> [libdisp_active() check](https://github.com/linux-audit/audit-userspace/blob/280cb8c07c431439ff85771988b9656780b8ef2b/audisp/audispd.c#L813) -> [plist_count() check](https://github.com/linux-audit/audit-userspace/blob/280cb8c07c431439ff85771988b9656780b8ef2b/audisp/audispd-llist.h#L69)
 
 | ![](/assets/img/auditd_blinder/auditd_arch_pwn.png) |
 |:--:|
