@@ -2,7 +2,6 @@
 title: auditd blinder
 excerpt: "auditd blinder"
 date: 2026-10-12
-image: /assets/img/auditd_blinder/logo.png
 categories: [Researcrh]
 tags: [Research, Malware, Red Team]
 ---
@@ -39,13 +38,11 @@ This attack bypasses auditd's immutable mode. The kernel continues applying rule
 # Attack workflow
 1. Get auditd pid
 2. Get auditd process VBA from /proc/<auditd_pid>/maps
-3. Set daemon_conf.write_logs and conf_llist.cnt to 0 writing directly to /proc/<auditd_pid>/mem
+3. Set daemon_conf.write_logs and conf_llist.cnt to 0 writing directly to /proc/\<auditd_pid\>/mem
 4. Have some fun
-5. Set daemon_conf.write_logs and conf_llist.cnt to 1 writing directly to /proc/<auditd_pid>/mem
+5. Set daemon_conf.write_logs and conf_llist.cnt to 1 writing directly to /proc/\<auditd_pid\>/mem
 
-| ![](/assets/video/auditd_blinder/poc.mp4) |
-|:--:|
-| *auditd blinder POC* |
+[auditd blinder POC](https://lnkd.in/p/e6xYKUVG)
 
 ```python3
 from pathlib import Path
