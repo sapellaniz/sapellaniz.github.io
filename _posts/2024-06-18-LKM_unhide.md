@@ -3,8 +3,8 @@ title: LKM unhide
 excerpt: "How to find hidden LKM Rootkits scanning kernel memory."
 date: 2024-06-19
 image: /assets/img/lkm_unhide/demo.png
-categories: [Researching, Malware]
-tags: [Researching, Malware]
+categories: [Research, Malware]
+tags: [Research, Malware]
 ---
 ---
 

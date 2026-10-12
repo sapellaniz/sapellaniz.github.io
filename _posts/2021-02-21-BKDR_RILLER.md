@@ -2,8 +2,8 @@
 title: BKDR RILER
 excerpt: "Hace unos días, por el grupo de Telegram de nuestro equipo de CTF GRAIL TEAM, S nos propuso analizar un malware que había obtenido de un repositorio de samples. Esu23 y yo, que también estamos bastante interesados en el análisis de malware, aceptamos su propuesta sin pensarlo. En esta entrada os contaremos cómo fué nuestra aventura analizando esta muestra."
 date: 2021-02-21
-categories: [Researching, Malware]
-tags: [Researching, Malware]
+categories: [Research, Malware]
+tags: [Research, Malware]
 ---
 
 > Hace unos días, por el grupo de Telegram de nuestro equipo de CTF GRAIL TEAM, S nos propuso analizar un malware que había obtenido de un repositorio de samples. Esu23 y yo, que también estamos bastante interesados en el análisis de malware, aceptamos su propuesta sin pensarlo. En esta entrada os contaremos cómo fué nuestra aventura analizando esta muestra.
