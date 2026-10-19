@@ -1,5 +1,5 @@
 ---
-title: auditd blinder
+title: auditd blinder part II
 excerpt: "auditd blinder part II"
 date: 2026-10-19
 categories: [Researcrh]
