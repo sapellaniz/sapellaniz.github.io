@@ -39,7 +39,7 @@ With this approach, only the execve syscall launching Python is recorded in most
 Here is the Python PoC:
 
 
-```python3
+```python
 from time import sleep
 
 write_logs_offset     = 0x26018
