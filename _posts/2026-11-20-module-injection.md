@@ -78,8 +78,8 @@ static int __init module_injection_init(void)
 
     // inject module MOD_TEXT section
     ret = inject_module_section(
-                (unsigned long)mod->mem[i].base,
-                (unsigned long)(mod->mem[i].base + mod->mem[i].size)
+                (unsigned long)mod->mem[0].base,
+                (unsigned long)(mod->mem[0].base + mod->mem[0].size)
     );
     
     // inject failed
